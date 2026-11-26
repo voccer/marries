@@ -65,7 +65,7 @@ h2 { font-family: var(--serif); font-weight: 500; font-size: 34px; line-height: 
 .no-js #envelope, #envelope[hidden] { display: none; }
 #envelope {
   position: fixed; inset: 0; z-index: 100; border: 0; padding: 0;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; padding-top: 60px;
   background: radial-gradient(circle at 50% 38%, #fffaf3, var(--paper) 72%);
   perspective: 1000px;
 }
@@ -76,7 +76,7 @@ h2 { font-family: var(--serif); font-weight: 500; font-size: 34px; line-height: 
 .envelope { position: relative; width: min(78vw, 320px); aspect-ratio: 3 / 2; filter: drop-shadow(0 22px 34px #5e1a2540); }
 .envelope__back { position: absolute; inset: 0; border-radius: 6px; background: linear-gradient(160deg, #f3e6d6, #e7d2bb); }
 .envelope__letter {
-  position: absolute; left: 7%; right: 7%; top: -24%; height: 76%;
+  position: absolute; left: 7%; right: 7%; top: -46%; height: 80%;
   padding: 16px 10px; border: 1px solid #eadbc5; border-radius: 4px;
   background: var(--paper-2) var(--grain);
   font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--muted);
