@@ -102,7 +102,18 @@
 
   // Hộp QR mừng cưới
   const giftBox = document.querySelector('#gift-box');
-  document.querySelector('.gift-open').addEventListener('click', () => giftBox.showModal());
+  const giftChoice = giftBox.querySelector('.gift-choice');
+  const giftCards = [...giftBox.querySelectorAll('.gift-card')];
+  // Mỗi lần mở: hiện màn chọn người nhận, ẩn QR
+  function showGiftChoice() { giftChoice.hidden = false; giftCards.forEach(card => { card.hidden = true; }); }
+  giftBox.querySelectorAll('.gift-pick').forEach(button => button.addEventListener('click', () => {
+    giftChoice.hidden = true;
+    const card = giftBox.querySelector('#' + button.dataset.target);
+    card.hidden = false;
+    card.querySelector('.gift-back').focus();
+  }));
+  giftBox.querySelectorAll('.gift-back').forEach(button => button.addEventListener('click', showGiftChoice));
+  document.querySelector('.gift-open').addEventListener('click', () => { showGiftChoice(); giftBox.showModal(); });
   giftBox.querySelector('.dialog__close').addEventListener('click', () => giftBox.close());
   giftBox.addEventListener('click', e => { if (e.target === giftBox) giftBox.close(); });
 

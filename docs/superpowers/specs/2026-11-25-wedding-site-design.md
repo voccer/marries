@@ -17,7 +17,7 @@ video, nhạc nền và QR mừng cưới. Hạn chót: link phải chạy trư�
 |---|---|---|
 | Tiệc báo hỷ nhà gái | 16:00 thứ Bảy 28/11/2026 | Yên Bái |
 | Tiệc thân mật bạn bè | 17:45 thứ Sáu 04/12/2026 | Quán bia Hải Xồm, 98 Thái Thịnh, Hà Nội |
-| Lễ thành hôn | 10:00 thứ Bảy 12/12/2026 | Tư gia nhà trai, xóm 9, xã Thiên Nhẫn, tỉnh Nghệ An |
+| Lễ thành hôn | 11:00 thứ Bảy 12/12/2026 | Tư gia nhà trai, xóm 9, xã Thiên Nhẫn, tỉnh Nghệ An |
 
 Hiển thị theo thứ tự thời gian như bảng trên.
 

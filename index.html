@@ -55,8 +55,8 @@
       <div class="event-card__body"><p class="event-card__tag">Yên Bái</p><h3>Tiệc báo hỷ nhà gái</h3><time datetime="2026-11-28T16:00+07:00">16:00 · Thứ Bảy 28/11/2026</time><p>Yên Bái</p><a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=Y%C3%AAn%20B%C3%A1i" target="_blank" rel="noopener">Chỉ đường ↗</a></div></article>
     <article class="event-card"><div class="cal" aria-hidden="true"><span>Thứ Sáu</span><b>04</b><span>Tháng 12</span><em>17:45</em></div>
       <div class="event-card__body"><p class="event-card__tag">Hà Nội</p><h3>Tiệc thân mật bạn bè</h3><time datetime="2026-12-04T17:45+07:00">17:45 · Thứ Sáu 04/12/2026</time><p>Quán bia Hải Xồm, 98 Thái Thịnh, Hà Nội</p><p class="event-card__note">Không say không về!</p><a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=Qu%C3%A1n%20bia%20H%E1%BA%A3i%20X%E1%BB%93m%2098%20Th%C3%A1i%20Th%E1%BB%8Bnh%20H%C3%A0%20N%E1%BB%99i" target="_blank" rel="noopener">Chỉ đường ↗</a></div></article>
-    <article class="event-card"><div class="cal" aria-hidden="true"><span>Thứ Bảy</span><b>12</b><span>Tháng 12</span><em>10:00</em></div>
-      <div class="event-card__body"><p class="event-card__tag">Nghệ An</p><h3>Lễ thành hôn</h3><time datetime="2026-12-12T10:00+07:00">10:00 · Thứ Bảy 12/12/2026</time><p>Tư gia nhà trai, xóm 9, xã Thiên Nhẫn, tỉnh Nghệ An</p><a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=x%C3%A3%20Thi%C3%AAn%20Nh%E1%BA%ABn%20Ngh%E1%BB%87%20An" target="_blank" rel="noopener">Chỉ đường ↗</a></div></article>
+    <article class="event-card"><div class="cal" aria-hidden="true"><span>Thứ Bảy</span><b>12</b><span>Tháng 12</span><em>11:00</em></div>
+      <div class="event-card__body"><p class="event-card__tag">Nghệ An</p><h3>Lễ thành hôn</h3><time datetime="2026-12-12T11:00+07:00">11:00 · Thứ Bảy 12/12/2026</time><p>Tư gia nhà trai, xóm 9, xã Thiên Nhẫn, tỉnh Nghệ An</p><a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=x%C3%A3%20Thi%C3%AAn%20Nh%E1%BA%ABn%20Ngh%E1%BB%87%20An" target="_blank" rel="noopener">Chỉ đường ↗</a></div></article>
   </section>
 
   <section id="gallery" class="section gallery">
@@ -107,16 +107,19 @@
     <p class="thanks__names">Trọng Đức &amp; Nhật Linh</p>
   </section>
 </main>
-<footer><small>Nhạc: “Canon in D Major” – Kevin MacLeod (incompetech.com), CC BY 4.0</small></footer>
+<footer><small>Nhạc: “Beautiful In White” – Shayne Ward</small></footer>
 </div>
 
 <dialog id="gift-box" aria-label="Thông tin mừng cưới">
   <button class="dialog__close" type="button" aria-label="Đóng">×</button>
-  <p class="eyebrow">Mừng cưới</p>
-  <div class="gifts__grid">
-    <article class="gift-card"><p class="gift-card__tag">Chú rể</p><h3>Trọng Đức</h3><img src="assets/qr/duc.webp" alt="Mã QR mừng cưới chú rể Trọng Đức" width="600" height="600" loading="lazy"><p>VPBank</p><strong>NGUYEN TRONG DUC</strong><p class="gift-card__account">227476796</p><button class="copy-btn" type="button" data-copy="227476796">Sao chép STK</button></article>
-    <article class="gift-card"><p class="gift-card__tag">Cô dâu</p><h3>Nhật Linh</h3><img src="assets/qr/linh.webp" alt="Mã QR mừng cưới cô dâu Nhật Linh" width="600" height="600" loading="lazy"><p>Vietcombank</p><strong>DOAN NHAT LINH</strong><p class="gift-card__account">9972388394</p><button class="copy-btn" type="button" data-copy="9972388394">Sao chép STK</button></article>
+  <div class="gift-choice">
+    <p class="eyebrow">Mừng cưới</p>
+    <h3 class="gift-choice__title">Bạn muốn gửi cho ai?</h3>
+    <button class="gift-pick" type="button" data-target="gift-duc"><span class="gift-pick__avatar portrait--groom" aria-hidden="true"></span><span><small>Gửi cho</small>Chú rể · Trọng Đức</span><i aria-hidden="true">›</i></button>
+    <button class="gift-pick" type="button" data-target="gift-linh"><span class="gift-pick__avatar portrait--bride" aria-hidden="true"></span><span><small>Gửi cho</small>Cô dâu · Nhật Linh</span><i aria-hidden="true">›</i></button>
   </div>
+  <article class="gift-card" id="gift-duc" hidden><button class="gift-back" type="button">‹ Chọn lại</button><p class="gift-card__tag">Chú rể</p><h3>Trọng Đức</h3><img src="assets/qr/duc.webp" alt="Mã QR mừng cưới chú rể Trọng Đức" width="600" height="600" loading="lazy"><p>VPBank</p><strong>NGUYEN TRONG DUC</strong><p class="gift-card__account">227476796</p><button class="copy-btn" type="button" data-copy="227476796">Sao chép STK</button></article>
+  <article class="gift-card" id="gift-linh" hidden><button class="gift-back" type="button">‹ Chọn lại</button><p class="gift-card__tag">Cô dâu</p><h3>Nhật Linh</h3><img src="assets/qr/linh.webp" alt="Mã QR mừng cưới cô dâu Nhật Linh" width="600" height="600" loading="lazy"><p>Vietcombank</p><strong>DOAN NHAT LINH</strong><p class="gift-card__account">9972388394</p><button class="copy-btn" type="button" data-copy="9972388394">Sao chép STK</button></article>
 </dialog>
 <dialog id="lightbox" aria-label="Xem ảnh cưới"><button class="lightbox__close" type="button" aria-label="Đóng ảnh">×</button><button class="lightbox__prev" type="button" aria-label="Ảnh trước">‹</button><img src="assets/photos/BTT_6276.webp" alt="Ảnh cưới Trọng Đức và Nhật Linh" width="1067" height="1600"><button class="lightbox__next" type="button" aria-label="Ảnh tiếp">›</button></dialog>
 <div id="toast" role="status" aria-live="polite"></div>

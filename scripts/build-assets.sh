@@ -26,5 +26,10 @@ ffmpeg -nostdin -v error -y -i qr/Title_1795620036369.jpg -vf 'crop=804:806:198:
 ffmpeg -nostdin -v error -y -i qr/IMG_1795620037683_1795620099653.jpg -vf 'crop=508:515:333:749,pad=650:650:71:68:white,scale=600:600:flags=neighbor' -c:v libwebp -lossless 1 assets/qr/linh.webp
 hero=$(head -n 1 assets/photos/manifest.txt)
 ffmpeg -nostdin -v error -y -i "raw/photos/$hero.jpg" -vf 'scale=1200:630:force_original_aspect_ratio=increase,crop=1200:630' -q:v 3 assets/og.jpg
-ffmpeg -nostdin -v error -y -i raw/music/canon-in-d.mp3 -map_metadata -1 -c:a libmp3lame -b:a 80k assets/music.mp3
+# Nhạc nền: cắt 1.5s–150s (hết điệp khúc 2), lên dần 0.5s, nhỏ dần 5s cuối để lặp lại mượt
+ffmpeg -nostdin -v error -y -ss 1.5 -to 150 -i raw/music/beautiful-in-white.mp3 -af 'afade=t=in:d=0.5,afade=t=out:st=143.5:d=5' -map_metadata -1 -c:a libmp3lame -b:a 96k assets/music.mp3
 echo 'Built wedding assets.'
+
+# Ảnh tròn cô dâu/chú rể cắt từ BTT_6229 (hai người nhìn nhau), lật ngang để chú rể (trái) và cô dâu (phải) hướng vào nhau
+ffmpeg -nostdin -v error -y -i raw/photos/BTT_6229.jpg -vf 'crop=725:725:2909:2059,hflip,scale=400:400' -c:v libwebp -quality 82 assets/photos/portrait-duc.webp
+ffmpeg -nostdin -v error -y -i raw/photos/BTT_6229.jpg -vf 'crop=725:725:1517:2647,hflip,scale=400:400' -c:v libwebp -quality 82 assets/photos/portrait-linh.webp

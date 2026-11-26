@@ -8,7 +8,8 @@ for name in $(cat assets/photos/manifest.txt); do
   [ -f "assets/photos/$name.webp" ] || fail "missing photo $name"
   [ -f "assets/photos/thumb/$name.webp" ] || fail "missing thumb $name"
 done
-[ "$(find assets/photos -maxdepth 1 -name '*.webp' | wc -l)" -eq 20 ] || fail 'full photo count'
+[ "$(find assets/photos -maxdepth 1 -name 'BTT_*.webp' | wc -l)" -eq 20 ] || fail 'full photo count'
+for p in portrait-duc portrait-linh; do [ -f "assets/photos/$p.webp" ] || fail "missing $p"; done
 [ "$(find assets/photos/thumb -maxdepth 1 -name '*.webp' | wc -l)" -eq 20 ] || fail 'thumb count'
 for file in assets/photos/*.webp; do [ "$(stat -c %s "$file")" -le 512000 ] || fail "oversize $file"; done
 for file in assets/photos/thumb/*.webp; do [ "$(stat -c %s "$file")" -le 122880 ] || fail "oversize $file"; done

@@ -26,7 +26,7 @@ bash scripts/check-page.sh
 
 ## Nhạc
 
-“Canon in D Major” của Kevin MacLeod (incompetech.com), giấy phép [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). [Nguồn MP3](https://incompetech.com/music/royalty-free/mp3-royaltyfree/Canon%20in%20D%20Major.mp3). Bản gốc ở `raw/music/canon-in-d.mp3`; script nén lại thành `assets/music.mp3` ở khoảng 80 kbps. Tác giả được ghi ở chân trang.
+“Beautiful In White” – Shayne Ward (file do cô dâu chú rể cung cấp, `raw/music/beautiful-in-white.mp3`). Bản trên trang được cắt 1,5s–150s, có fade in/out (xem `scripts/build-assets.sh`). Bài hát có bản quyền: dùng cho thiệp cá nhân theo quyết định của chủ trang.
 
 ## Chạy và đưa lên Vercel
 
