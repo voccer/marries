@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Lá -->
+  <path d="M30 40 C18 40 10 48 8 58 C20 58 28 52 30 40Z" fill="#7d8f5a"/>
+  <path d="M34 40 C46 40 54 48 56 58 C44 58 36 52 34 40Z" fill="#94a56c"/>
+  <!-- Lớp cánh ngoài -->
+  <g fill="#7a2333" transform="translate(32 28)">
+    <ellipse rx="10" ry="15" cy="-12"/>
+    <ellipse rx="10" ry="15" cy="-12" transform="rotate(72)"/>
+    <ellipse rx="10" ry="15" cy="-12" transform="rotate(144)"/>
+    <ellipse rx="10" ry="15" cy="-12" transform="rotate(216)"/>
+    <ellipse rx="10" ry="15" cy="-12" transform="rotate(288)"/>
+  </g>
+  <!-- Lớp cánh trong -->
+  <g fill="#b8475d" transform="translate(32 28) rotate(36)">
+    <ellipse rx="7" ry="10" cy="-8"/>
+    <ellipse rx="7" ry="10" cy="-8" transform="rotate(72)"/>
+    <ellipse rx="7" ry="10" cy="-8" transform="rotate(144)"/>
+    <ellipse rx="7" ry="10" cy="-8" transform="rotate(216)"/>
+    <ellipse rx="7" ry="10" cy="-8" transform="rotate(288)"/>
+  </g>
+  <!-- Nhuỵ -->
+  <circle cx="32" cy="28" r="6" fill="#d9b26f"/>
+  <circle cx="32" cy="28" r="2.6" fill="#f3d9b1"/>
+</svg>
