@@ -96,7 +96,16 @@
     swipeStart = null;
   });
 
+  // Hộp QR mừng cưới
+  const giftBox = document.querySelector('#gift-box');
+  document.querySelector('.gift-open').addEventListener('click', () => giftBox.showModal());
+  giftBox.querySelector('.dialog__close').addEventListener('click', () => giftBox.close());
+  giftBox.addEventListener('click', e => { if (e.target === giftBox) giftBox.close(); });
+
   function showToast(message) {
+    // Dialog modal nằm ở top layer: đưa toast vào trong dialog đang mở để không bị che
+    const host = document.querySelector('dialog[open]') || document.body;
+    if (toast.parentElement !== host) host.append(toast);
     toast.textContent = message;
     toast.classList.add('is-visible');
     clearTimeout(toastTimer);
@@ -148,22 +157,14 @@
       startPetals();
     };
     if (opened) startPetals();
-    const line = document.querySelector('.timeline__line');
-    const length = line.getTotalLength();
-    gsap.set(line, { strokeDasharray: length, strokeDashoffset: length });
-    gsap.to(line, { strokeDashoffset: 0, ease: 'none', scrollTrigger: { trigger: '#events', start: 'top 80%', end: 'bottom 70%', scrub: true } });
-    gsap.utils.toArray('.event-card').forEach(card => gsap.from(card, { y: 24, opacity: 0, duration: .65, scrollTrigger: { trigger: card, start: 'top 85%' } }));
-  });
-  mm.add('(prefers-reduced-motion: no-preference) and (min-width: 768px)', () => {
-      const track = document.querySelector('.gallery__track');
-      const gallerySection = document.querySelector('#gallery');
-      // Chỉ chuyển sang dải ngang khi hiệu ứng pin thực sự chạy; không thì giữ lưới 4 cột
-      gallerySection.classList.add('gallery--pinned');
-      gsap.to(track, { x: () => -Math.max(0, track.scrollWidth - gallerySection.clientWidth + 40), ease: 'none', scrollTrigger: { trigger: gallerySection, start: 'top top', end: () => '+=' + Math.max(0, track.scrollWidth - gallerySection.clientWidth + 40), pin: true, scrub: 1, invalidateOnRefresh: true } });
-      return () => gallerySection.classList.remove('gallery--pinned');
-  });
-  mm.add('(prefers-reduced-motion: no-preference) and (max-width: 767px)', () => {
-      gallery.forEach(item => gsap.fromTo(item, { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: .75, scrollTrigger: { trigger: item, start: 'top 92%' } }));
+    // Các khối nội dung hiện dần khi cuộn tới (chỉ opacity/y trên phần tử không có transform CSS riêng)
+    gsap.utils.toArray('.section > h2, .couple .person, .event-card, .film__frame, .gift-open').forEach(el =>
+      gsap.from(el, { y: 24, opacity: 0, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+    // Polaroid đã xoay bằng CSS nên chỉ fade, ảnh lưới thì mở màn từ dưới lên
+    gsap.utils.toArray('.gallery__item--polaroid').forEach((el, i) =>
+      gsap.from(el, { opacity: 0, duration: .8, delay: i * .15, scrollTrigger: { trigger: '#gallery', start: 'top 75%' } }));
+    gallery.filter(item => !item.classList.contains('gallery__item--polaroid')).forEach(item =>
+      gsap.fromTo(item, { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: .75, ease: 'power2.out', scrollTrigger: { trigger: item, start: 'top 94%' } }));
   });
   mm.add('(prefers-reduced-motion: no-preference)', () => {
     document.querySelectorAll('.gift-card').forEach(card => {

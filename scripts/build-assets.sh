@@ -20,7 +20,7 @@ for i in "${!SEGMENTS[@]}"; do
   printf "file '%s'\n" "$file" >> "$tmpdir/list.txt"
 done
 ffmpeg -nostdin -v error -y -f concat -safe 0 -i "$tmpdir/list.txt" -c copy -movflags +faststart assets/video/highlight.mp4
-ffmpeg -nostdin -v error -y -ss 1 -i assets/video/highlight.mp4 -frames:v 1 -c:v libwebp -quality 82 assets/video/poster.webp
+ffmpeg -nostdin -v error -y -ss 14 -i assets/video/highlight.mp4 -frames:v 1 -c:v libwebp -quality 82 assets/video/poster.webp
 # Viền trắng giữ khoảng trống cần thiết quanh mã QR.
 ffmpeg -nostdin -v error -y -i qr/Title_1795620036369.jpg -vf 'crop=804:806:198:530,pad=1010:1010:103:102:white,scale=600:600:flags=neighbor' -c:v libwebp -lossless 1 assets/qr/duc.webp
 ffmpeg -nostdin -v error -y -i qr/IMG_1795620037683_1795620099653.jpg -vf 'crop=508:515:333:749,pad=650:650:71:68:white,scale=600:600:flags=neighbor' -c:v libwebp -lossless 1 assets/qr/linh.webp

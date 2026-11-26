@@ -8,6 +8,6 @@ done
 for forbidden in 'Nhật Linh & Trọng Đức' 'countdown' 'calendar'; do
   if grep -Fq "$forbidden" index.html; then echo "FAIL: forbidden $forbidden"; exit 1; fi
 done
-[ "$(grep -c 'class="gallery__item"' index.html)" -eq 20 ] || { echo 'FAIL: gallery count'; exit 1; }
+[ "$(grep -c 'data-full="assets/photos/' index.html)" -eq 20 ] || { echo 'FAIL: gallery count'; exit 1; }
 [ "$(grep -c 'class="event-card"' index.html)" -eq 3 ] || { echo 'FAIL: event count'; exit 1; }
 echo 'PASS: page copy, hooks and counts'
