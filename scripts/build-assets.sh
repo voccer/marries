@@ -22,8 +22,8 @@ done
 ffmpeg -nostdin -v error -y -f concat -safe 0 -i "$tmpdir/list.txt" -c copy -movflags +faststart assets/video/highlight.mp4
 ffmpeg -nostdin -v error -y -ss 1 -i assets/video/highlight.mp4 -frames:v 1 -c:v libwebp -quality 82 assets/video/poster.webp
 # Viền trắng giữ khoảng trống cần thiết quanh mã QR.
-ffmpeg -nostdin -v error -y -i qr/Title_1795620036369.jpg -vf 'crop=810:814:196:528,pad=882:882:36:34:white,scale=600:600:flags=neighbor' -c:v libwebp -lossless 1 assets/qr/duc.webp
-ffmpeg -nostdin -v error -y -i qr/IMG_1795620037683_1795620099653.jpg -vf 'crop=508:515:333:749,pad=572:579:32:32:white,scale=600:600:flags=neighbor' -c:v libwebp -lossless 1 assets/qr/linh.webp
+ffmpeg -nostdin -v error -y -i qr/Title_1795620036369.jpg -vf 'crop=804:806:198:530,pad=1010:1010:103:102:white,scale=600:600:flags=neighbor' -c:v libwebp -lossless 1 assets/qr/duc.webp
+ffmpeg -nostdin -v error -y -i qr/IMG_1795620037683_1795620099653.jpg -vf 'crop=508:515:333:749,pad=650:650:71:68:white,scale=600:600:flags=neighbor' -c:v libwebp -lossless 1 assets/qr/linh.webp
 hero=$(head -n 1 assets/photos/manifest.txt)
 ffmpeg -nostdin -v error -y -i "raw/photos/$hero.jpg" -vf 'scale=1200:630:force_original_aspect_ratio=increase,crop=1200:630' -q:v 3 assets/og.jpg
 ffmpeg -nostdin -v error -y -i raw/music/canon-in-d.mp3 -map_metadata -1 -c:a libmp3lame -b:a 80k assets/music.mp3
