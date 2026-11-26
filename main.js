@@ -16,6 +16,9 @@
   let resumeAfterVisibility = false;
   let intro = () => {};
   document.body.style.overflow = 'hidden';
+  // Nội dung sau phong bì không nhận focus/đọc màn hình cho tới khi mở thiệp
+  const hiddenBehind = [document.querySelector('.card'), musicButton];
+  hiddenBehind.forEach(el => { el.inert = true; });
 
   function syncMusic() {
     const playing = !bgm.paused;
@@ -32,6 +35,7 @@
   }
   function revealPage(runIntro = true) {
     envelope.hidden = true;
+    hiddenBehind.forEach(el => { el.inert = false; });
     document.body.style.overflow = '';
     if (runIntro) intro();
     // Thanh cuộn chỉ xuất hiện sau khi mở thiệp nên phải đo lại vị trí các trigger
@@ -115,7 +119,10 @@
     const input = document.createElement('textarea');
     input.value = value;
     input.style.cssText = 'position:fixed;top:0;left:-9999px';
-    document.body.append(input);
+    input.readOnly = true;
+    // Webview chỉ cho chọn text trong dialog modal đang mở
+    (document.querySelector('dialog[open]') || document.body).append(input);
+    input.setSelectionRange(0, value.length);
     input.select();
     const copied = document.execCommand('copy');
     input.remove();
